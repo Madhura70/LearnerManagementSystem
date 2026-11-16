@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67485601-c6da-42e0-ad92-dbc0bfab14fa" name="Changes" comment="first commit" />
+    <list default="true" id="67485601-c6da-42e0-ad92-dbc0bfab14fa" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/cohort/Cohort.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/course/Course.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/course/CourseType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/course/OfflineCourse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/course/OnlineCourse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/intructor/Instructor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/learner/JavaLearner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/learner/Learner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/LearnerManagementSystem/main/java/org/example/learner/NodeLearner.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794826975778</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1794827489220</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1794827489220</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +132,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>
