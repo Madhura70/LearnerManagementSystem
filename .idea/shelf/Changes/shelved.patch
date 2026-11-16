@@ -1,0 +1,671 @@
+Index: src/main/java/org/example/course/OnlineCourse.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/course/OnlineCourse.java b/src/main/java/org/example/course/OnlineCourse.java
+new file mode 100644
+--- /dev/null	(date 1794032354374)
++++ b/src/main/java/org/example/course/OnlineCourse.java	(date 1794032354374)
+@@ -0,0 +1,35 @@
++package main.java.org.example.course;
++
++public class OnlineCourse extends Course{
++
++    private String zoomUrl;
++
++    public OnlineCourse(Long courseId, String courseName, String courseDescription, CourseType courseType, String zoomUrl) {
++        super(courseId, courseName, courseDescription, courseType);
++        this.zoomUrl=zoomUrl;
++    }
++    public OnlineCourse(Long courseId, String courseName, String courseDescription, CourseType courseType){
++        super(courseId, courseName, courseDescription, courseType);
++        this.zoomUrl= "Bangalore";
++    }
++
++    @Override
++    public void displayCourseDetails() {
++        System.out.println("Course ID: " + getCourseId());
++        System.out.println("Course Name: " + getCourseName());
++        System.out.println("Course Description: " + getCourseDescription());
++        System.out.println("Course Medium: " + getCourseMedium().toString());
++        System.out.println("Course location: " + this.zoomUrl);
++        for (int i = 0; i <getCohorts().size(); i++){
++            getCohorts().get(i).displayCohortDetails();
++        }
++    }
++
++    public String getLocation() {
++        return zoomUrl;
++    }
++
++    public void setLocation(String location) {
++        this.zoomUrl = location;
++    }
++}
+Index: src/main/java/org/example/course/CourseType.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/course/CourseType.java b/src/main/java/org/example/course/CourseType.java
+new file mode 100644
+--- /dev/null	(date 1793451135767)
++++ b/src/main/java/org/example/course/CourseType.java	(date 1793451135767)
+@@ -0,0 +1,9 @@
++package main.java.org.example.course;
++
++//LIST OF CONSTANT
++public enum CourseType {
++
++    NODE,
++
++    JAVA
++}
+Index: src/main/java/org/example/course/OfflineCourse.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/course/OfflineCourse.java b/src/main/java/org/example/course/OfflineCourse.java
+new file mode 100644
+--- /dev/null	(date 1793452179421)
++++ b/src/main/java/org/example/course/OfflineCourse.java	(date 1793452179421)
+@@ -0,0 +1,32 @@
++package main.java.org.example.course;
++
++public class OfflineCourse extends Course{
++
++    private String location;
++
++    public OfflineCourse(Long courseId, String courseName, String courseDescription, CourseType courseType, String location) {
++        super(courseId, courseName, courseDescription, courseType);
++        this.location=location;
++    }
++    public OfflineCourse(Long courseId, String courseName, String courseDescription, CourseType courseType){
++        super(courseId, courseName, courseDescription, courseType);
++        this.location= "Bangalore";
++    }
++
++    @Override
++    public void displayCourseDetails() {
++        System.out.println("Course ID: " + getCourseId());
++        System.out.println("Course Name" + getCourseName());
++        System.out.println("Course Description" + getCourseDescription());
++        System.out.println("Course Medium: " + getCourseMedium().toString());
++        System.out.println("Course location " + this.location );
++    }
++
++    public String getLocation() {
++        return location;
++    }
++
++    public void setLocation(String location) {
++        this.location = location;
++    }
++}
+Index: src/main/java/org/example/learner/Learner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/learner/Learner.java b/src/main/java/org/example/learner/Learner.java
+new file mode 100644
+--- /dev/null	(date 1794825217275)
++++ b/src/main/java/org/example/learner/Learner.java	(date 1794825217275)
+@@ -0,0 +1,47 @@
++package main.java.org.example.learner;
++
++import java.util.List;
++
++public abstract class Learner {
++    private String learnerId;
++
++    private String learnerName;
++
++    private String learnerEmail;
++
++    public Learner(String learnerId, String learnerName, String learnerEmail) {
++        this.learnerId = learnerId;
++        this.learnerName = learnerName;
++        this.learnerEmail = learnerEmail;
++    }
++
++    public String getLearnerId() {
++        return learnerId;
++    }
++
++    public void setLearnerId(String learnerId) {
++        this.learnerId = learnerId;
++    }
++
++    public String getLearnerName() {
++        return learnerName;
++    }
++
++    public void setLearnerName(String learnerName) {
++        this.learnerName = learnerName;
++    }
++
++    public String getLearnerEmail() {
++        return learnerEmail;
++    }
++
++    public void setLearnerEmail(String learnerEmail) {
++        this.learnerEmail = learnerEmail;
++    }
++
++    public abstract void displayLearnerDetails();
++
++    public void add(Learner learner) {
++
++    }
++}
+Index: src/main/java/org/example/learner/NodeLearner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/learner/NodeLearner.java b/src/main/java/org/example/learner/NodeLearner.java
+new file mode 100644
+--- /dev/null	(date 1794031053145)
++++ b/src/main/java/org/example/learner/NodeLearner.java	(date 1794031053145)
+@@ -0,0 +1,19 @@
++package main.java.org.example.learner;
++
++public class NodeLearner extends Learner{
++
++    private int numbersOfYearsOfNodeExperience;
++    public NodeLearner(String learnerId, String learnerName, String learnerEmail, int numbersOfYearsOfNodeExperience) {
++        super(learnerId, learnerName, learnerEmail);
++        this.numbersOfYearsOfNodeExperience = numbersOfYearsOfNodeExperience;
++
++    }
++
++    @Override
++    public void displayLearnerDetails() {
++        System.out.println("learner Id: " + getLearnerId());
++        System.out.println("Learner Name: " + getLearnerName());
++        System.out.println("Learner Email: " + getLearnerEmail());
++        System.out.println("Number of years Node Experience: " + numbersOfYearsOfNodeExperience);
++    }
++}
+Index: src/main/java/org/example/cohort/Cohort.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/cohort/Cohort.java b/src/main/java/org/example/cohort/Cohort.java
+new file mode 100644
+--- /dev/null	(date 1794035315277)
++++ b/src/main/java/org/example/cohort/Cohort.java	(date 1794035315277)
+@@ -0,0 +1,121 @@
++package main.java.org.example.cohort;
++
++import main.java.org.example.intructor.Instructor;
++import main.java.org.example.learner.Learner;
++
++import java.util.ArrayList;
++import java.util.Date;
++import java.util.List;
++
++public class Cohort {
++    private String cohortId;
++
++    private String cohortName;
++
++    private String cohortDescription;
++
++    private Date startDate;
++
++    private Date endDate;
++
++    private List<Learner> learners;
++
++    private List<Instructor> instructors;
++
++    public Cohort(String cohortId, String cohortName, String cohortDescription) {
++        this.cohortId = cohortId;
++        this.cohortName = cohortName;
++        this.cohortDescription = cohortDescription;
++        this.learners = new ArrayList<>();
++        this.instructors = new ArrayList<>();
++    }
++
++    public Cohort(String cohortId, String cohortName, String cohortDescription, Date startDate, Date endDate) {
++        this.cohortId = cohortId;
++        this.cohortName = cohortName;
++        this.cohortDescription = cohortDescription;
++        this.startDate = startDate;
++        this.endDate = endDate;
++        this.learners = new ArrayList<>();
++        this.instructors = new ArrayList<>();
++    }
++
++    public String getCohortId() {
++        return cohortId;
++    }
++
++    public void setCohortId(String cohortId) {
++        this.cohortId = cohortId;
++    }
++
++    public String getCohortName() {
++        return cohortName;
++    }
++
++    public void setCohortName(String cohortName) {
++        this.cohortName = cohortName;
++    }
++
++    public String getCohortDescription() {
++        return cohortDescription;
++    }
++
++    public void setCohortDescription(String cohortDescription) {
++        this.cohortDescription = cohortDescription;
++    }
++
++    public Date getStartDate() {
++        return startDate;
++    }
++
++    public void setStartDate(Date startDate) {
++        this.startDate = startDate;
++    }
++
++    public Date getEndDate() {
++        return endDate;
++    }
++
++    public void setEndDate(Date endDate) {
++        this.endDate = endDate;
++    }
++
++    public List<Learner> addLearnerToCohort(Learner learner){
++        learner.add(learner);
++        return learners;
++    }
++
++    public List<Instructor> addInstructorToCohort(Instructor instructor){
++        instructors.add(instructor);
++        return instructors;
++    }
++
++    public List<Learner> getLearners(){
++        return learners;
++    }
++
++    public List<Instructor> getInstructors(){
++        return instructors;
++    }
++
++    public void displayCohortDetails(){
++        System.out.println("Cohort Id: " + cohortId);
++        System.out.println("Cohort Name: " + cohortName );
++        System.out.println("Cohort Description: " + cohortDescription);
++        System.out.println("Start Date: " + startDate);
++        System.out.println("End Date: " + endDate);
++
++        System.out.println("learner in cohort: ");
++        for (Learner learner : learners){
++            learner.displayLearnerDetails();
++        }
++
++        System.out.println("Instructors in cohort: ");
++        for (Instructor instructor : instructors){
++            System.out.println("Instructor Id: " + instructor.getIndtructorId());
++            System.out.println("Instructor Name: " + instructor.getInstructirName());
++            System.out.println("Instructor Email: "  + instructor.getInstructorEmail());
++        }
++    }
++
++}
+Index: src/main/java/org/example/intructor/Instructor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/intructor/Instructor.java b/src/main/java/org/example/intructor/Instructor.java
+new file mode 100644
+--- /dev/null	(date 1794031719516)
++++ b/src/main/java/org/example/intructor/Instructor.java	(date 1794031719516)
+@@ -0,0 +1,42 @@
++package main.java.org.example.intructor;
++
++public class Instructor {
++
++    private String indtructorId;
++
++    private String instructirName;
++
++    private String instructorEmail;
++
++    public Instructor(String indtructorId, String instructirName, String instructorEmail) {
++        this.indtructorId = indtructorId;
++        this.instructirName = instructirName;
++        this.instructorEmail = instructorEmail;
++    }
++
++    public String getIndtructorId() {
++        return indtructorId;
++    }
++
++    public void setIndtructorId(String indtructorId) {
++        this.indtructorId = indtructorId;
++    }
++
++    public String getInstructirName() {
++        return instructirName;
++    }
++
++    public void setInstructirName(String instructirName) {
++        this.instructirName = instructirName;
++    }
++
++    public String getInstructorEmail() {
++        return instructorEmail;
++    }
++
++    public void setInstructorEmail(String instructorEmail) {
++        this.instructorEmail = instructorEmail;
++    }
++
++
++}
+Index: src/main/java/org/example/learner/JavaLearner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/learner/JavaLearner.java b/src/main/java/org/example/learner/JavaLearner.java
+new file mode 100644
+--- /dev/null	(date 1794031371382)
++++ b/src/main/java/org/example/learner/JavaLearner.java	(date 1794031371382)
+@@ -0,0 +1,21 @@
++package main.java.org.example.learner;
++
++public class JavaLearner extends Learner{
++
++    private boolean knowsMultiThreading;
++
++    private int numbersOfYearsOfJavaExperience;
++    public JavaLearner(String learnerId, String learnerName, String learnerEmail, boolean knowsMultiThreading) {
++        super(learnerId, learnerName, learnerEmail);
++        this.knowsMultiThreading = knowsMultiThreading;
++
++    }
++
++    @Override
++    public void displayLearnerDetails() {
++        System.out.println("learner Id: " + getLearnerId());
++        System.out.println("Learner Name: " + getLearnerName());
++        System.out.println("Learner Email: " + getLearnerEmail());
++        System.out.println("knows Multi Threading: " + knowsMultiThreading);
++    }
++}
+Index: src/main/java/org/example/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+new file mode 100644
+--- /dev/null	(date 1794035516600)
++++ b/src/main/java/org/example/Main.java	(date 1794035516600)
+@@ -0,0 +1,61 @@
++package main.java.org.example;
++
++import main.java.org.example.cohort.Cohort;
++import main.java.org.example.course.Course;
++import main.java.org.example.course.CourseType;
++import main.java.org.example.course.OfflineCourse;
++import main.java.org.example.course.OnlineCourse;
++import main.java.org.example.intructor.Instructor;
++import main.java.org.example.learner.JavaLearner;
++import main.java.org.example.learner.Learner;
++import main.java.org.example.learner.NodeLearner;
++
++public class Main {
++    public static void main(String[] args) {
++        OfflineCourse nodeOfflineCourse = new OfflineCourse(1L, "Test", "Test Course", CourseType.NODE, "Bangalore");
++        OfflineCourse javaOfflineCourse = new OfflineCourse(1L, "Test", "Test Course", CourseType.JAVA, "Bangalore");
++
++        OnlineCourse nodeOnlineCourse = new OnlineCourse(1L, "Test", "Test Course", CourseType.NODE, "www.google.com");
++        OnlineCourse javaOnlineCourse = new OnlineCourse(1L, "Test", "Test Course", CourseType.JAVA, "www.google.com");
++
++        Cohort c1 = new Cohort("1", "Cohort 1", "Cohort 1 Description",new java.util.Date(), new java.util.Date());
++        Cohort c2 = new Cohort("2", "Cohort 2", "Cohort 2 Description",new java.util.Date(), new java.util.Date());
++        Cohort c3 = new Cohort("3", "Cohort 3", "Cohort 3 Description",new java.util.Date(), new java.util.Date());
++        Cohort c4 = new Cohort("4", "Cohort 4", "Cohort 4 Description",new java.util.Date(), new java.util.Date());
++
++        Learner javaLearner1 = new JavaLearner("1", "Java Learner 1", "Test", true);
++        Learner javaLearner2 = new JavaLearner("2", "Java Learner 2", "Test", false);
++
++        Learner nodeLearner1 = new NodeLearner("3", "Node Learner 3", "Test", 7);
++        Learner nodeLearner2 = new NodeLearner("4","Node Learner 4","test", 2);
++
++        Instructor  instructor1 = new Instructor("1", "Instructor 1", "test");
++
++        // Map leaners to cohorts
++        c1.addLearnerToCohort(javaLearner1);
++        c1.addLearnerToCohort(nodeLearner2);
++
++        c3.addLearnerToCohort(javaLearner2);
++        c4.addLearnerToCohort(nodeLearner1);
++        c2.addLearnerToCohort(nodeLearner2);
++
++        // Map instructor to cohorts
++        c1.addInstructorToCohort(instructor1);
++        c2.addInstructorToCohort(instructor1);
++        c3.addInstructorToCohort(instructor1);
++        c4.addInstructorToCohort(instructor1);
++
++        // Mapping cohorts to course
++        nodeOfflineCourse.addCohortToTheCourse(c1);
++        nodeOnlineCourse.addCohortToTheCourse(c2);
++
++        javaOnlineCourse.addCohortToTheCourse(c3);
++        javaOfflineCourse.addCohortToTheCourse(c4);
++
++        // Display course details
++        nodeOfflineCourse.displayCourseDetails();
++        nodeOnlineCourse.displayCourseDetails();
++        javaOfflineCourse.displayCourseDetails();
++        javaOnlineCourse.displayCourseDetails();
++    }
++}
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1793450807924)
++++ b/.idea/.gitignore	(date 1793450807924)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1793450794733)
++++ b/.gitignore	(date 1793450794733)
+@@ -0,0 +1,29 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1793450802439)
++++ b/.idea/modules.xml	(date 1793450802439)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/LearnerManagementSystem.iml" filepath="$PROJECT_DIR$/LearnerManagementSystem.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1793450802635)
++++ b/.idea/misc.xml	(date 1793450802635)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/org/example/course/Course.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/course/Course.java b/src/main/java/org/example/course/Course.java
+new file mode 100644
+--- /dev/null	(date 1794032398986)
++++ b/src/main/java/org/example/course/Course.java	(date 1794032398986)
+@@ -0,0 +1,77 @@
++package main.java.org.example.course;
++
++import main.java.org.example.cohort.Cohort;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public abstract class Course {
++    private Long courseId;
++
++    private String courseName;
++
++    private String courseDescription;
++
++    private CourseType courseMedium;
++
++    private List<Cohort> cohorts;
++
++    public Course(Long courseId, String courseName, String courseDescription, CourseType courseMedium) {
++        this.courseId = courseId;
++        this.courseName = courseName;
++        this.courseDescription = courseDescription;
++        this.courseMedium = courseMedium;
++        this.cohorts= new ArrayList<>();
++
++    }
++
++    public Long getCourseId() {
++        return courseId;
++    }
++
++    public void setCourseId(Long courseId) {
++        this.courseId = courseId;
++    }
++
++    public String getCourseName() {
++        return courseName;
++    }
++
++    public void setCourseName(String courseName) {
++        this.courseName = courseName;
++    }
++
++    public String getCourseDescription() {
++        return courseDescription;
++    }
++
++    public void setCourseDescription(String courseDescription) {
++        this.courseDescription = courseDescription;
++    }
++
++    public CourseType getCourseMedium() {
++        return courseMedium;
++    }
++
++    public void setCourseMedium(CourseType courseMedium) {
++        this.courseMedium = courseMedium;
++    }
++
++    public abstract void displayCourseDetails();
++
++    public void addCohortToTheCourse(Cohort cohort){
++        cohorts.add(cohort);
++    }
++
++    public void removeCohortFromCourse(Cohort cohort){
++        cohorts.remove(cohort);
++    }
++
++    public List<Cohort> getCohorts() {
++        return cohorts;
++    }
++
++    public void setCohorts(List<Cohort> cohorts) {
++        this.cohorts = cohorts;
++    }
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1793450808626)
++++ b/.idea/vcs.xml	(date 1793450808626)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
